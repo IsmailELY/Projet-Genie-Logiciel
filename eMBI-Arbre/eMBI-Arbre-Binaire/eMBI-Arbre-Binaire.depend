@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1571162721 source:c:\td2\embi-arbre\embi-arbre-binaire\main.cpp
+	<iostream>
+	<cstdlib>
+	"ArbreBI.h"
+
+1571186376 source:c:\td2\embi-arbre\embi-arbre-binaire\arbrebi.cpp
+	<iostream>
+	<cstdlib>
+	"ArbreBI.h"
+
+1571186465 c:\td2\embi-arbre\embi-arbre-binaire\arbrebi.h
+	<iostream>
+	<cstdlib>
+
