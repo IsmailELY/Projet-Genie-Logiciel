@@ -131,3 +131,66 @@ int Arbre::TrouverPlusPetiteClePrivee(Noeud* Ptr){
         }
     }
 }
+
+void Arbre::DeleteNoeudPriveeV1(int cle, Noeud * Ptr, Noeud * Pere)
+{
+    if (root -> cle==cle && root->gauche==NULL && root -> droite == NULL){
+            root = NULL;
+        }
+        else if(cle < Ptr->cle){
+                if(Ptr->gauche !=NULL){
+                    DeleteNoeudPriveeV1(cle, Ptr->gauche,Ptr);
+                }
+                else{  // inserer mon noeud
+                    cout << "Element Introuvable";
+                }
+        }
+        else if(cle > Ptr->cle){
+                if(Ptr->droite !=NULL){
+                    DeleteNoeudPriveeV1(cle, Ptr->droite,Ptr);
+                }
+                else{  // inserer mon noeud
+                    cout << "Element Introuvable";
+                }
+        }
+        else
+        {
+            Noeud *filsGauche = Ptr -> gauche ;
+            if (Pere != NULL)
+                Pere -> gauche = Ptr ->droite;
+            Ptr = Ptr -> droite;
+            while(Ptr ->gauche !=NULL)
+                Ptr = Ptr -> gauche;
+            Ptr -> gauche = filsGauche;
+        }
+}
+
+void  Arbre::DeleteNoeudPriveeV2(int cle, Noeud * Ptr)
+{
+    return DeleteNoeudPriveeV1(cle,Ptr,NULL);
+}
+void  Arbre::DeleteNoeud(int cle)
+{
+    return DeleteNoeudPriveeV2(cle,root);
+}
+
+void Arbre::AfficherInversePrivee(Noeud* Ptr)
+{
+if (root !=NULL){
+        if (Ptr->droite !=NULL){
+           AfficherInversePrivee(Ptr->droite);
+        }
+        cout << Ptr->cle << " ** ";
+
+        if (Ptr->gauche !=NULL){
+            AfficherInversePrivee(Ptr->gauche);
+        }
+    }
+    else{
+        cout << " arbre n existe  pas !!! \n";
+    }
+
+}
+void   Arbre::AfficherInverse(){
+ return AfficherInversePrivee(root);
+}

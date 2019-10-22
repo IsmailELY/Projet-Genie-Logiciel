@@ -13,6 +13,8 @@ int main(){
     }
 
     arbre.AfficherArbre();
+
+
     cout << endl;
     //***********************************
     int racine;
@@ -20,6 +22,10 @@ int main(){
     cout << "La cle de la racine est : " << racine << endl;
 
     cout<< "La plus petite cle dans l'arbre est: " << arbre.TrouverPlusPetiteCle()<< endl;
+
+     arbre.AfficherInverse();
+    arbre.DeleteNoeud(22);
+    arbre.AfficherArbre();
 
     return 0;
 }
